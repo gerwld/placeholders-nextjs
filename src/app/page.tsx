@@ -1,8 +1,12 @@
 import React from 'react'
+import DefaultBlur from '@/components/static/defaultBlur';
+import PreviewIMG from "../../public/preview.jpg";
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <DefaultBlur src={PreviewIMG}/>
+    </div>
   )
 }
 
