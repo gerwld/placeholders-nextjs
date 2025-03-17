@@ -16,7 +16,7 @@ const blur:FC<StaticPlaceholderBlurProps> = async ({src}) => {
   return (
         <div className={style.imageContainer}>
             <Image
-                src={src}
+                src={`/placeholders-nextjs${src}`}
                 fill
                 alt={"Image"}
                 placeholder='blur'

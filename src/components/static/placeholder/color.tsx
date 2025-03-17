@@ -16,7 +16,7 @@ const color:FC<StaticPlaceholderColorProps> = async ({src}) => {
   return (
         <div style={{backgroundColor: color.hex}} className={style.imageContainer}>
             <Image
-                src={src}
+                src={`/placeholders-nextjs${src}`}
                 fill
                 alt={"Image"}
             />
