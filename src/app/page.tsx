@@ -1,11 +1,12 @@
 import React from 'react'
-import DefaultBlur from '@/components/static/defaultBlur';
-import PreviewIMG from "../../public/preview.jpg";
+import StaticPlaceholderBlur from '@/components/static/placeholder/blur';
+import StaticPlaceholderColor from '@/components/static/placeholder/color';
 
 const page = () => {
   return (
-    <div>
-      <DefaultBlur src={PreviewIMG}/>
+    <div style={{display:"flex"}}>
+      <StaticPlaceholderBlur src={'/preview.jpg'}/>
+      <StaticPlaceholderColor src={'/preview.jpg'}/>
     </div>
   )
 }
