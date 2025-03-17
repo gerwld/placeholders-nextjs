@@ -1,16 +1,17 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import React, { FC } from 'react'
-import style from '../../style.module.scss';
+import style from '../style.module.scss';
 import { getPlaiceholder } from 'plaiceholder';
-import fs from 'node:fs/promises';
 
-type StaticPlaceholderBlurProps = {
-  src: string | StaticImageData
+type DynamicPlaceholderBlurProps = {
+  src: string
 }
 
-const blur:FC<StaticPlaceholderBlurProps> = async ({src}) => {
+const blur:FC<DynamicPlaceholderBlurProps> = async ({src}) => {
 
-  const buffer = await fs.readFile(`./public/${src}`);
+  const buffer = await fetch(src).then(async res => {
+    return Buffer.from(await res.arrayBuffer());
+  });
   const {base64} = await getPlaiceholder(buffer);
 
   return (

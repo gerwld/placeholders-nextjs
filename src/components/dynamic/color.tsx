@@ -1,16 +1,17 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import React, { FC } from 'react'
-import style from '../../style.module.scss';
+import style from '../style.module.scss';
 import { getPlaiceholder } from 'plaiceholder';
-import fs from 'node:fs/promises';
 
-type StaticPlaceholderColorProps = {
-  src: string | StaticImageData
+type DynamicPlaceholderColorProps = {
+  src: string
 }
 
-const color:FC<StaticPlaceholderColorProps> = async ({src}) => {
+const color:FC<DynamicPlaceholderColorProps> = async ({src}) => {
 
-  const buffer = await fs.readFile(`./public/${src}`);
+  const buffer = await fetch(src).then(async res => {
+    return Buffer.from(await res.arrayBuffer());
+  });
   const {color} = await getPlaiceholder(buffer);
 
   return (

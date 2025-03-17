@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  h1 {
+    font-family: 'Regular';
+    font-size: 18px;
+    margin-top: 1em;
+  }
+
+  p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 5px;
+    font-family: 'Regular';
+  }
+}
